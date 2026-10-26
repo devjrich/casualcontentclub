@@ -158,6 +158,40 @@ section { padding-block: 84px; }
 .calendly-inline-widget { margin-top: 28px; min-width: 280px; height: 720px; background: var(--bg); border-radius: var(--radius); overflow: hidden; }
 .cal-note { margin-top: 14px; font-size: 14px; color: color-mix(in srgb, var(--bg) 72%, var(--ink)); }
 
+/* Inquiry form */
+.inquire { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
+.inquire .intro { display: grid; gap: 16px; position: sticky; top: 90px; }
+.inquire .intro h2 { font-size: clamp(42px, 6vw, 68px); }
+.inquire .intro p { color: var(--muted); max-width: 40ch; }
+form.intake { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; min-width: 0; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field.full, fieldset.full { grid-column: 1 / -1; }
+.field label, fieldset legend { font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+.field input, .field select, .field textarea, .pair input { width: 100%; font: 400 16px/1.4 var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--ink); }
+fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+fieldset legend { margin-bottom: 8px; width: 100%; }
+.pick { position: relative; }
+.pick input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.pick span { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; font-size: 14px; }
+.pick input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pick input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.req { color: var(--muted); font-weight: 400; }
+.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.form-status { font-size: 15px; }
+.form-status.ok { font: italic 500 22px var(--display); }
+.hp { display: none; }
+.q .qt { display: block; font: 500 26px/1.15 var(--display); letter-spacing: 0; }
+.q .qh { display: block; font-size: 14px; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-top: 4px; }
+.q { gap: 10px; }
+form.intake { row-gap: 26px; }
+.pick.big span { padding: 14px 22px; font-size: 16px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 420px) { .pair { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .inquire { grid-template-columns: 1fr; gap: 32px; } .inquire .intro { position: static; } }
+@media (max-width: 560px) { form.intake { grid-template-columns: 1fr; } }
+
 footer { border-top: 1px solid var(--line); }
 footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; color: var(--muted); font-size: 14px; }
 </style>
@@ -172,6 +206,7 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
       <a href="#services">Services</a>
+      <a href="#inquire">Inquire</a>
       <a class="btn" href="#book">Book</a>
     </nav>
   </div>
@@ -313,6 +348,35 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
     </div>
   </section>
 
+  <section id="inquire" style="padding-top:0">
+    <div class="wrap inquire">
+      <div class="intro">
+        <p class="label">Inquiry form</p>
+        <h2>Tell me about <em>your content</em></h2>
+        <p>Not ready to book yet, or have something custom in mind? Fill this out and I’ll get back to you by email.</p>
+      </div>
+      <form class="intake" id="intake" novalidate>
+        <fieldset class="full q"><legend><span class="qt">✨ What are we capturing?</span><span class="qh">Choose the vibe that fits your session best!</span></legend>
+          <label class="pick big"><input type="radio" id="q-vibe-event" name="capturing" value="Event"><span>🎉 Event</span></label>
+          <label class="pick big"><input type="radio" id="q-vibe-biz" name="capturing" value="Business / Brand"><span>💼 Business / Brand</span></label>
+          <label class="pick big"><input type="radio" id="q-vibe-personal" name="capturing" value="Personal"><span>💕 Personal</span></label>
+        </fieldset>
+        <div class="field full q"><label for="q-details"><span class="qt">💭 Tell me a little about what you have in mind!</span><span class="qh">What are we celebrating, creating, or capturing? Give me all the details! ✨</span></label><textarea id="q-details" name="details"></textarea></div>
+        <div class="field full q"><label for="q-hours"><span class="qt">⏰ How much time do you need me for?</span><span class="qh">How long would you like your session to be?</span></label><select id="q-hours" name="session_length"><option value="">Choose a length</option><option>1 hour</option><option>2 hours</option><option>3 hours</option><option>4 hours</option><option>5 hours</option><option>6+ hours</option><option>Not sure yet</option></select></div>
+        <div class="field full q"><label for="q-loc"><span class="qt">📍 Where are we shooting?</span><span class="qh">Drop the location or venue below! If you’re still deciding, that’s totally okay too. 💕</span></label><input id="q-loc" name="location" placeholder="Venue, city, or “still deciding”"></div>
+        <div class="field full q"><span class="qt" id="q-when-label">📅 When are we making the magic happen?</span><span class="qh">Let me know your preferred date &amp; time!</span>
+          <div class="pair" role="group" aria-labelledby="q-when-label"><input id="q-date" name="preferred_date" type="date" aria-label="Preferred date"><input id="q-time" name="preferred_time" type="time" aria-label="Preferred time"></div></div>
+        <div class="field full q"><span class="qt">💌 How can I reach you?</span><span class="qh">Leave your preferred contact info so I can get in touch with you!</span></div>
+        <div class="field"><label for="q-name">Name <span class="req">*</span></label><input id="q-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="q-email">Email <span class="req">*</span></label><input id="q-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="q-ig">Instagram</label><input id="q-ig" name="instagram" placeholder="@yourhandle"></div>
+        <input type="checkbox" class="hp" id="q-botcheck" name="botcheck" tabindex="-1" autocomplete="off">
+        <div class="form-actions"><button class="btn" type="submit" id="q-submit">Send it ✨</button><p class="form-status" id="q-status" role="status"></p></div>
+      </form>
+    </div>
+  </section>
+
   <section id="book" style="padding-top:0">
     <div class="wrap">
       <div class="book">
@@ -334,6 +398,8 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
 <script>
 /* ---- Settings ---- */
 const CALENDLY_URL = "https://calendly.com/thecasualcontentclub";
+// Inquiry form: Web3Forms access key (from web3forms.com). Submissions are emailed to the address the key was created with.
+const WEB3FORMS_KEY = "65c7d362-ecf0-46f0-94b4-1020eff4aa19";
 // Work wall. Files live in /media. cat: events | brands | lifestyle | moments
 const WORK = [
   { src: "media/bloom-bar-1.jpg", alt: "Bloom bar under a fringe umbrella", cat: "brands" },
@@ -416,6 +482,27 @@ if (CALENDLY_URL) {
   note.innerHTML = 'Calendar not loading? <a href="' + CALENDLY_URL + '" target="_blank" rel="noopener">Open the booking page</a>.';
   slot.appendChild(note);
 }
+// Inquiry form submit
+const form = document.getElementById("intake"), status = document.getElementById("q-status"), submitBtn = document.getElementById("q-submit");
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  status.className = "form-status";
+  const name = form.elements.name.value.trim(), email = form.elements.email.value.trim();
+  if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { status.textContent = "Please add your name and a valid email."; return; }
+  if (!WEB3FORMS_KEY) { status.textContent = "The form isn't connected yet. Please DM @thecasualcontentclub on Instagram."; return; }
+  const fd = new FormData(form);
+  const data = Object.fromEntries([...fd.keys()].map(k => [k, fd.getAll(k).join(", ")]));
+  Object.assign(data, { access_key: WEB3FORMS_KEY, subject: "New inquiry from " + name, from_name: "The Casual Content Club website", replyto: email });
+  submitBtn.disabled = true; status.textContent = "Sending…";
+  try {
+    const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
+    const j = await r.json();
+    if (!j.success) throw new Error(j.message);
+    form.reset(); status.className = "form-status ok"; status.textContent = "Got it! I’ll be in touch soon ✨";
+  } catch (err) {
+    status.textContent = "That didn’t send. Please try again, or DM @thecasualcontentclub on Instagram.";
+  } finally { submitBtn.disabled = false; }
+});
 document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
 </body>
