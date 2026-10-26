@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://casualcontentclub.com/book/">
+<title>Book a Content Hour | The Casual Content Club</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The Casual Content Club: content hours for events, small businesses and you. DSLR and iPhone photos and videos, AirDropped the same day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+/* Layout: black-and-white editorial page. Arched photo frames, thin italic serif like her Instagram slides, a masonry wall of her work, services, then an inquiry form for booking. */
+:root {
+  --bg: #FFFFFF;
+  --surface: #F7F6F5;
+  --ink: #111111;
+  --muted: #6A6766;
+  --line: #E7E4E2;
+  --accent: #111111;
+  --accent-ink: #FFFFFF;
+  --display: "Cormorant Garamond", "Didot", Georgia, serif;
+  --body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --radius: 22px;
+  --arch: 999px 999px 22px 22px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0E0E0E; --surface: #181717; --ink: #F6F4F3; --muted: #A9A4A2; --line: #2B2928;
+  --accent: #F6F4F3; --accent-ink: #0E0E0E; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0E0E0E; --surface: #181717; --ink: #F6F4F3; --muted: #A9A4A2; --line: #2B2928;
+  --accent: #F6F4F3; --accent-ink: #0E0E0E; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1140px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.02; text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+h1 em, h2 em, h3 em { font-style: italic; font-weight: 400; }
+p { margin: 0; }
+a { color: inherit; }
+img, video { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.label { font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+main { overflow-x: clip; }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { text-decoration: none; display: inline-flex; align-items: baseline; gap: 6px; font-family: var(--display); line-height: 1; }
+.brand b { font-weight: 500; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; }
+.brand i { font-size: 24px; }
+nav { display: flex; gap: 24px; align-items: center; font-size: 15px; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; cursor: pointer; font: 500 15px/1 var(--body); padding: 14px 22px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); text-decoration: none; transition: transform .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+nav .btn { padding: 10px 18px; }
+@media (max-width: 700px) { nav a:not(.btn) { display: none; } .brand b { font-size: 13px; } .brand i { font-size: 20px; } }
+
+/* Arched media frames */
+.arch { border-radius: var(--arch); overflow: hidden; background: var(--surface); }
+.arch img, .arch video { width: 100%; height: 100%; object-fit: cover; }
+
+/* Hero */
+.hero { padding-block: 56px 72px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(52px, 8vw, 104px); }
+.hero .lede { margin-top: 22px; max-width: 36ch; font-size: 19px; color: var(--muted); }
+.hero .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.hero .facts { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; color: var(--muted); }
+.hero .facts span::before { content: "✦ "; color: var(--ink); font-family: var(--display); }
+.hero-media { position: relative; justify-self: center; width: 100%; max-width: 420px; padding: 0 0 40px 40px; }
+.hero-media .arch.main { aspect-ratio: 9/14; }
+.hero-media .arch.small { position: absolute; left: 0; bottom: 0; width: 42%; aspect-ratio: 3/4; border: 6px solid var(--bg); }
+.hero-media .note { position: absolute; right: -6px; top: 22px; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font: italic 500 17px/1 var(--display); }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-block: 36px 48px; gap: 40px; } .hero-media { max-width: 360px; } }
+
+/* Quote band */
+.quote { border-block: 1px solid var(--line); background: var(--surface); }
+.quote .wrap { padding-block: 56px; text-align: center; display: grid; gap: 14px; justify-items: center; }
+.quote blockquote { margin: 0; font: italic 400 clamp(28px, 4.2vw, 46px)/1.15 var(--display); max-width: 24ch; text-wrap: balance; }
+.quote p { font: 500 22px var(--display); }
+
+/* Sections */
+section { padding-block: 84px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(42px, 6vw, 68px); }
+.sec-head p { color: var(--muted); max-width: 44ch; }
+
+/* About */
+.about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: center; }
+.about .arch { aspect-ratio: 9/14; max-width: 380px; width: 100%; justify-self: center; }
+.about .copy { display: grid; gap: 18px; min-width: 0; }
+.about h2 { font-size: clamp(42px, 6vw, 68px); }
+.about .copy p { color: var(--muted); max-width: 54ch; }
+.about .copy p.big { color: var(--ink); font: 500 26px/1.3 var(--display); }
+.sig { font: italic 400 34px/1 var(--display); color: var(--ink) !important; }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; gap: 40px; } .about .arch { max-width: 300px; } }
+
+/* Work wall */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.chip { border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 999px; padding: 9px 16px; font: 500 14px/1 var(--body); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.wall { columns: 3 260px; column-gap: 12px; }
+.tile { break-inside: avoid; margin: 0 0 12px; position: relative; border-radius: 14px; overflow: hidden; background: var(--surface); }
+.tile img, .tile video { width: 100%; height: auto; }
+.tile .tag { position: absolute; top: 10px; left: 10px; font: 600 10px/1 var(--body); letter-spacing: .14em; padding: 6px 9px; border-radius: 999px; background: rgba(255,255,255,.9); color: #111; }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.svc { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.svc .arch { aspect-ratio: 3/4; }
+.svc h3 { font-size: 28px; font-style: italic; font-weight: 400; margin-top: 6px; }
+.svc p { color: var(--muted); font-size: 16px; }
+@media (max-width: 960px) { .services { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .services { grid-template-columns: 1fr; } .svc .arch { max-width: 300px; } }
+
+/* How it works */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.steps div { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.steps h3 { font-size: 30px; margin: 10px 0 8px; }
+.steps p { color: var(--muted); font-size: 16px; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+
+/* Inquiry form */
+.inquire { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
+.inquire .intro { display: grid; gap: 16px; position: sticky; top: 90px; }
+.inquire .intro h2 { font-size: clamp(42px, 6vw, 68px); }
+.inquire .intro p { color: var(--muted); max-width: 40ch; }
+form.intake { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; min-width: 0; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field.full, fieldset.full { grid-column: 1 / -1; }
+.field label, fieldset legend { font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+.field input, .field select, .field textarea, .pair input { width: 100%; font: 400 16px/1.4 var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--ink); }
+fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+fieldset legend { margin-bottom: 8px; width: 100%; }
+.pick { position: relative; }
+.pick input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.pick span { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; font-size: 14px; }
+.pick input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pick input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.req { color: var(--muted); font-weight: 400; }
+.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.form-status { font-size: 15px; }
+.form-status.ok { font: italic 500 22px var(--display); }
+.hp { display: none; }
+.q .qt { display: block; font: 500 26px/1.15 var(--display); letter-spacing: 0; }
+.q .qh { display: block; font-size: 14px; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-top: 4px; }
+.q { gap: 10px; }
+form.intake { row-gap: 26px; }
+.pick.big span { padding: 14px 22px; font-size: 16px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 420px) { .pair { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .inquire { grid-template-columns: 1fr; gap: 32px; } .inquire .intro { position: static; } }
+@media (max-width: 560px) { form.intake { grid-template-columns: 1fr; } }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><b>The Casual Content</b><i>club</i></a>
+    <nav>
+      <a href="/#about">About</a>
+      <a href="/#work">Work</a>
+      <a href="/#services">Services</a>
+      <a class="btn" href="/book/">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inquire">
+    <div class="wrap inquire">
+      <div class="intro">
+        <p class="label">Book a content hour</p>
+        <h2>Tell me about <em>your content</em></h2>
+        <p>Ready to book a content hour? Tell me about your session and I’ll get back to you by email with availability and pricing.</p>
+      </div>
+      <form class="intake" id="intake" novalidate>
+        <fieldset class="full q"><legend><span class="qt">✨ What are we capturing?</span><span class="qh">Choose the vibe that fits your session best!</span></legend>
+          <label class="pick big"><input type="radio" id="q-vibe-event" name="capturing" value="Event"><span>🎉 Event</span></label>
+          <label class="pick big"><input type="radio" id="q-vibe-biz" name="capturing" value="Business / Brand"><span>💼 Business / Brand</span></label>
+          <label class="pick big"><input type="radio" id="q-vibe-personal" name="capturing" value="Personal"><span>💕 Personal</span></label>
+        </fieldset>
+        <div class="field full q"><label for="q-details"><span class="qt">💭 Tell me a little about what you have in mind!</span><span class="qh">What are we celebrating, creating, or capturing? Give me all the details! ✨</span></label><textarea id="q-details" name="details"></textarea></div>
+        <div class="field full q"><label for="q-hours"><span class="qt">⏰ How much time do you need me for?</span><span class="qh">How long would you like your session to be?</span></label><select id="q-hours" name="session_length"><option value="">Choose a length</option><option>1 hour</option><option>2 hours</option><option>3 hours</option><option>4 hours</option><option>5 hours</option><option>6+ hours</option><option>Not sure yet</option></select></div>
+        <div class="field full q"><label for="q-loc"><span class="qt">📍 Where are we shooting?</span><span class="qh">Drop the location or venue below! If you’re still deciding, that’s totally okay too. 💕</span></label><input id="q-loc" name="location" placeholder="Venue, city, or “still deciding”"></div>
+        <div class="field full q"><span class="qt" id="q-when-label">📅 When are we making the magic happen?</span><span class="qh">Let me know your preferred date &amp; time!</span>
+          <div class="pair" role="group" aria-labelledby="q-when-label"><input id="q-date" name="preferred_date" type="date" aria-label="Preferred date"><input id="q-time" name="preferred_time" type="time" aria-label="Preferred time"></div></div>
+        <div class="field full q"><span class="qt">💌 How can I reach you?</span><span class="qh">Leave your preferred contact info so I can get in touch with you!</span></div>
+        <div class="field"><label for="q-name">Name <span class="req">*</span></label><input id="q-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="q-email">Email <span class="req">*</span></label><input id="q-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="q-ig">Instagram</label><input id="q-ig" name="instagram" placeholder="@yourhandle"></div>
+        <input type="checkbox" class="hp" id="q-botcheck" name="botcheck" tabindex="-1" autocomplete="off">
+        <div class="form-actions"><button class="btn" type="submit" id="q-submit">Send it ✨</button><p class="form-status" id="q-status" role="status"></p></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> The Casual Content Club</span>
+    <a href="https://www.instagram.com/thecasualcontentclub/" target="_blank" rel="noopener">Instagram @thecasualcontentclub</a>
+  </div>
+</footer>
+
+<script>
+const WEB3FORMS_KEY = "65c7d362-ecf0-46f0-94b4-1020eff4aa19";
+// Inquiry form submit
+const form = document.getElementById("intake"), status = document.getElementById("q-status"), submitBtn = document.getElementById("q-submit");
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  status.className = "form-status";
+  const name = form.elements.name.value.trim(), email = form.elements.email.value.trim();
+  if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { status.textContent = "Please add your name and a valid email."; return; }
+  if (!WEB3FORMS_KEY) { status.textContent = "The form isn't connected yet. Please DM @thecasualcontentclub on Instagram."; return; }
+  const fd = new FormData(form);
+  const data = Object.fromEntries([...fd.keys()].map(k => [k, fd.getAll(k).join(", ")]));
+  Object.assign(data, { access_key: WEB3FORMS_KEY, subject: "New inquiry from " + name, from_name: "The Casual Content Club website", replyto: email });
+  submitBtn.disabled = true; status.textContent = "Sending…";
+  try {
+    const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
+    const j = await r.json();
+    if (!j.success) throw new Error(j.message);
+    form.reset(); status.className = "form-status ok"; status.textContent = "Got it! I’ll be in touch soon ✨";
+  } catch (err) {
+    status.textContent = "That didn’t send. Please try again, or DM @thecasualcontentclub on Instagram.";
+  } finally { submitBtn.disabled = false; }
+});
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
