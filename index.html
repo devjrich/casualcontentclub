@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
 <style>
-/* Layout: black-and-white editorial page. Arched photo frames, thin italic serif like her Instagram slides, a masonry wall of her work, rate cards with an hour stepper, services, then booking. */
+/* Layout: black-and-white editorial page. Arched photo frames, thin italic serif like her Instagram slides, a masonry wall of her work, services, then an inquiry form for booking. */
 :root {
   --bg: #FFFFFF;
   --surface: #F7F6F5;
@@ -110,31 +110,6 @@ section { padding-block: 84px; }
 .tile img, .tile video { width: 100%; height: auto; }
 .tile .tag { position: absolute; top: 10px; left: 10px; font: 600 10px/1 var(--body); letter-spacing: .14em; padding: 6px 9px; border-radius: 999px; background: rgba(255,255,255,.9); color: #111; }
 
-/* Pricing */
-#pricing { background: var(--surface); border-block: 1px solid var(--line); }
-.plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-@media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
-.plan { border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; gap: 20px; background: var(--bg); min-width: 0; }
-.plan.featured { border-color: var(--ink); }
-.plan-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
-.plan h3 { font-size: 38px; }
-.pill { font: 600 10px/1 var(--body); text-transform: uppercase; letter-spacing: .14em; padding: 7px 10px; border-radius: 999px; background: var(--ink); color: var(--bg); white-space: nowrap; }
-.rate { font: 500 64px/1 var(--display); }
-.rate small { font: 400 15px var(--body); color: var(--muted); }
-.plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.plan li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
-.plan li::before { content: "✦"; font-family: var(--display); }
-.plan li.plus { font-weight: 600; }
-.hours { margin-top: auto; border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
-.stepper { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); }
-.stepper button { width: 42px; height: 42px; border: 0; background: none; color: var(--ink); font-size: 20px; cursor: pointer; border-radius: 999px; }
-.stepper button:disabled { opacity: .25; cursor: default; }
-.stepper output { min-width: 76px; text-align: center; font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
-.total { text-align: right; }
-.total b { display: block; font: 500 36px/1 var(--display); font-variant-numeric: tabular-nums; }
-.plan .btn { width: 100%; }
-.fine { margin-top: 20px; font-size: 14px; color: var(--muted); }
-
 /* Services */
 .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .svc { display: grid; gap: 12px; align-content: start; min-width: 0; }
@@ -150,13 +125,6 @@ section { padding-block: 84px; }
 .steps h3 { font-size: 30px; margin: 10px 0 8px; }
 .steps p { color: var(--muted); font-size: 16px; }
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
-
-/* Booking */
-.book { background: var(--ink); color: var(--bg); border-radius: 32px; padding: clamp(24px, 5vw, 52px); }
-.book h2 { font-size: clamp(42px, 6vw, 68px); }
-.book > p { color: color-mix(in srgb, var(--bg) 72%, var(--ink)); margin-top: 12px; max-width: 48ch; }
-.calendly-inline-widget { margin-top: 28px; min-width: 280px; height: 720px; background: var(--bg); border-radius: var(--radius); overflow: hidden; }
-.cal-note { margin-top: 14px; font-size: 14px; color: color-mix(in srgb, var(--bg) 72%, var(--ink)); }
 
 /* Inquiry form */
 .inquire { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
@@ -204,10 +172,8 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
     <nav>
       <a href="#about">About</a>
       <a href="#work">Work</a>
-      <a href="#pricing">Pricing</a>
       <a href="#services">Services</a>
-      <a href="#inquire">Inquire</a>
-      <a class="btn" href="#book">Book</a>
+      <a class="btn" href="#inquire">Book</a>
     </nav>
   </div>
 </header>
@@ -219,8 +185,8 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
       <h1 style="margin-top:16px">Your content, <em>without the whole production.</em></h1>
       <p class="lede">We show up to your event, your business or a spot we pick together, shoot your photos and videos, and AirDrop everything to you before we leave.</p>
       <div class="actions">
-        <a class="btn" href="#book">Book a content hour</a>
-        <a class="btn ghost" href="#pricing">See pricing</a>
+        <a class="btn" href="#inquire">Book a content hour</a>
+        <a class="btn ghost" href="#work">See the work</a>
       </div>
       <div class="facts"><span>DSLR + iPhone</span><span>Same-day AirDrop</span><span>Edited reels available</span></div>
     </div>
@@ -269,63 +235,11 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
     </div>
   </section>
 
-  <section id="pricing">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>In-person <em>content hours</em></h2>
-        <p>Both packages are priced per hour. Pick how long you need and the total updates.</p>
-      </div>
-      <div class="plans">
-        <article class="plan">
-          <div class="plan-top"><div><p class="label">Package one</p><h3 style="margin-top:8px">Content <em>Hour</em></h3></div></div>
-          <p class="rate">$120<small> / hour</small></p>
-          <ul>
-            <li>Professional DSLR camera photos</li>
-            <li>iPhone photos and videos</li>
-            <li>Everything AirDropped to you the same day</li>
-          </ul>
-          <div class="hours">
-            <div class="stepper" role="group" aria-label="Hours for Content Hour">
-              <button type="button" id="p1-minus" aria-label="Fewer hours">−</button>
-              <output id="p1-hours">1 hour</output>
-              <button type="button" id="p1-plus" aria-label="More hours">+</button>
-            </div>
-            <div class="total"><span class="label">Total</span><b id="p1-total">$120</b></div>
-          </div>
-          <a class="btn ghost" href="#book">Book Content Hour</a>
-        </article>
-
-        <article class="plan featured">
-          <div class="plan-top">
-            <div><p class="label">Package two</p><h3 style="margin-top:8px">Content Hour <em>+ Edits</em></h3></div>
-            <span class="pill">Ready to post</span>
-          </div>
-          <p class="rate">$200<small> / hour</small></p>
-          <ul>
-            <li>Everything in Content Hour</li>
-            <li class="plus">1 edited reel, ready to post</li>
-            <li class="plus">10 edited photos for your social media</li>
-          </ul>
-          <div class="hours">
-            <div class="stepper" role="group" aria-label="Hours for Content Hour plus Edits">
-              <button type="button" id="p2-minus" aria-label="Fewer hours">−</button>
-              <output id="p2-hours">1 hour</output>
-              <button type="button" id="p2-plus" aria-label="More hours">+</button>
-            </div>
-            <div class="total"><span class="label">Total</span><b id="p2-total">$200</b></div>
-          </div>
-          <a class="btn" href="#book">Book Content Hour + Edits</a>
-        </article>
-      </div>
-      <p class="fine">Need more than 6 hours or something custom? Mention it in your booking notes.</p>
-    </div>
-  </section>
-
   <section id="services">
     <div class="wrap">
       <div class="sec-head">
         <h2>More ways <em>we can help</em></h2>
-        <p>Whatever your content needs are, The Casual Content Club is here for you. Send us a message for pricing on these.</p>
+        <p>Whatever your content needs are, The Casual Content Club is here for you.</p>
       </div>
       <div class="services">
         <div class="svc"><div class="arch"><img src="media/event-drinks.jpg" alt="Colorful drinks at an event table" loading="lazy"></div><h3>Edited reel add-ons</h3><p>If editing isn’t your thing but you still want ready-to-post reels, add an edited reel (or 2, or 3) to any content hour.</p></div>
@@ -341,9 +255,9 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
     <div class="wrap">
       <div class="sec-head"><h2>How it <em>works</em></h2></div>
       <div class="steps">
-        <div><p class="label">Step one</p><h3>Pick a time</h3><p>Choose your package and grab an open slot on the calendar below.</p></div>
+        <div><p class="label">Step one</p><h3>Send an inquiry</h3><p>Tell me what we’re capturing, when, and where using the form below. I’ll reply by email to lock in your date.</p></div>
         <div><p class="label">Step two</p><h3>We shoot</h3><p>Show up as you are. We capture photos and video on the DSLR and iPhone.</p></div>
-        <div><p class="label">Step three</p><h3>Same-day AirDrop</h3><p>Your photos and videos land on your phone before we wrap. Edits follow for Content Hour + Edits.</p></div>
+        <div><p class="label">Step three</p><h3>Same-day AirDrop</h3><p>Your photos and videos land on your phone before we wrap. Edited reels and photos follow if you add them.</p></div>
       </div>
     </div>
   </section>
@@ -351,9 +265,9 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
   <section id="inquire" style="padding-top:0">
     <div class="wrap inquire">
       <div class="intro">
-        <p class="label">Inquiry form</p>
+        <p class="label">Book a content hour</p>
         <h2>Tell me about <em>your content</em></h2>
-        <p>Not ready to book yet, or have something custom in mind? Fill this out and I’ll get back to you by email.</p>
+        <p>Ready to book a content hour? Tell me about your session and I’ll get back to you by email with availability and pricing.</p>
       </div>
       <form class="intake" id="intake" novalidate>
         <fieldset class="full q"><legend><span class="qt">✨ What are we capturing?</span><span class="qh">Choose the vibe that fits your session best!</span></legend>
@@ -377,15 +291,6 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
     </div>
   </section>
 
-  <section id="book" style="padding-top:0">
-    <div class="wrap">
-      <div class="book">
-        <h2>Book your <em>content hour</em></h2>
-        <p>Pick a date and time that works for you. You’ll get a confirmation email with the details right away.</p>
-        <div id="cal-slot"></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -397,7 +302,6 @@ footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; justify-cont
 
 <script>
 /* ---- Settings ---- */
-const CALENDLY_URL = "https://calendly.com/thecasualcontentclub";
 // Inquiry form: Web3Forms access key (from web3forms.com). Submissions are emailed to the address the key was created with.
 const WEB3FORMS_KEY = "65c7d362-ecf0-46f0-94b4-1020eff4aa19";
 // Work wall. Files live in /media. cat: events | brands | lifestyle | moments
@@ -450,38 +354,6 @@ document.querySelectorAll(".chip").forEach(chip => chip.addEventListener("click"
   wall.querySelectorAll(".tile").forEach(t => { t.hidden = f !== "all" && t.dataset.cat !== f; });
 }));
 
-// Hour steppers
-const MAX_HOURS = 6;
-[["p1", 120], ["p2", 200]].forEach(([id, rate]) => {
-  let h = 1;
-  const out = document.getElementById(id + "-hours"), tot = document.getElementById(id + "-total");
-  const minus = document.getElementById(id + "-minus"), plus = document.getElementById(id + "-plus");
-  const render = () => {
-    out.textContent = h + (h === 1 ? " hour" : " hours");
-    tot.textContent = "$" + (rate * h).toLocaleString();
-    minus.disabled = h <= 1; plus.disabled = h >= MAX_HOURS;
-  };
-  minus.addEventListener("click", () => { h = Math.max(1, h - 1); render(); });
-  plus.addEventListener("click", () => { h = Math.min(MAX_HOURS, h + 1); render(); });
-  render();
-});
-
-// Booking: Calendly inline embed
-const slot = document.getElementById("cal-slot");
-if (CALENDLY_URL) {
-  const w = document.createElement("div");
-  w.className = "calendly-inline-widget";
-  w.dataset.url = CALENDLY_URL + "?hide_gdpr_banner=1";
-  slot.appendChild(w);
-  const s = document.createElement("script");
-  s.src = "https://assets.calendly.com/assets/external/widget.js";
-  s.async = true;
-  document.body.appendChild(s);
-  const note = document.createElement("p");
-  note.className = "cal-note";
-  note.innerHTML = 'Calendar not loading? <a href="' + CALENDLY_URL + '" target="_blank" rel="noopener">Open the booking page</a>.';
-  slot.appendChild(note);
-}
 // Inquiry form submit
 const form = document.getElementById("intake"), status = document.getElementById("q-status"), submitBtn = document.getElementById("q-submit");
 form.addEventListener("submit", async e => {
